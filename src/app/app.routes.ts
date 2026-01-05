@@ -11,6 +11,10 @@ export const routes: Routes = [
         loadComponent: () => import('./dashboard/pages/user-page/user-page'),
       },
       {
+        path: 'client',
+        loadComponent: () => import('./dashboard/pages/cliente-page/cliente-page'),
+      },
+      {
         path: '**',
         redirectTo: 'user'
       }
