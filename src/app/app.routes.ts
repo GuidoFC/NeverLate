@@ -3,7 +3,17 @@ import {DashboardLayout} from './dashboard/layout/dashboard-layout/dashboard-lay
 
 export const routes: Routes = [
   {
-    path: '',
-    component: DashboardLayout
+    path: 'dashboard',
+    component: DashboardLayout,
+    children: [
+      {
+        path: 'user',
+        loadComponent: () => import('./dashboard/pages/user-page/user-page'),
+      }
+    ]
+  },
+  {
+    path: '**',
+    redirectTo: 'dashboard'
   }
 ];
