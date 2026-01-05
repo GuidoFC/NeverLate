@@ -14,8 +14,8 @@ import {RouterLink, RouterLinkActive} from '@angular/router';
 export class DashboardSideMenuOptions {
 
   menuOption: menuOption[] = [{
-    icon: '',
-    label: '',
-    route: ''
+    icon: 'fa-solid fa-user',
+    label: 'Usuario',
+    route: '/dashboard/user'
   }]
 }
