@@ -3,9 +3,10 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-main-layout',
   imports: [],
-  templateUrl: './main-layout.html',
+  standalone: true,
+  templateUrl: './dashboard-layout.html',
   styles: ``,
 })
-export class MainLayout {
+export class DashboardLayout {
 
 }
