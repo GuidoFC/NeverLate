@@ -1,4 +1,4 @@
-<h2 mat-dialog-title>Install Angular</h2>
+<h2 mat-dialog-title>Añadir a un usuario</h2>
 <mat-dialog-content class="mat-typography">
 
   <div class="row">
@@ -11,12 +11,12 @@
 
         <!-- Campo de producto -->
         <div class="mb-3 row">
-          <label class="col-sm-3 col-form-label">Producto</label>
+          <label class="col-sm-3 col-form-label">Nombre</label>
           <div class="col-sm-9">
 
             <input type="text"
                    class="form-control"
-                   placeholder="Nombre del producto"
+                   placeholder="Antonio"
                    formControlName="name"
             >
 
@@ -27,14 +27,44 @@
           </div>
         </div>
 
-        <!-- Campo de producto -->
+        <!-- Campo de 1r apellido -->
         <div class="mb-3 row">
-          <label class="col-sm-3 col-form-label">Precio</label>
+          <label class="col-sm-3 col-form-label">1r Apellido</label>
           <div class="col-sm-9">
             <input type="text"
                    class="form-control"
-                   placeholder="Precio del producto"
+                   placeholder="Fernandez"
                    formControlName="lastName"
+            >
+            <span class="form-text text-danger">
+                        El precio debe de ser 0 o mayor
+                    </span>
+          </div>
+        </div>
+
+        <!-- Campo de 2n apellido -->
+        <div class="mb-3 row">
+          <label class="col-sm-3 col-form-label">2n Apellido</label>
+          <div class="col-sm-9">
+            <input type="text"
+                   class="form-control"
+                   placeholder="Herrera"
+                   formControlName="secondLastName"
+            >
+            <span class="form-text text-danger">
+                        El precio debe de ser 0 o mayor
+                    </span>
+          </div>
+        </div>
+
+        <!-- Campo de Rol -->
+        <div class="mb-3 row">
+          <label class="col-sm-3 col-form-label">Rol PENDIENTE HACER UN SELECT</label>
+          <div class="col-sm-9">
+            <input type="text"
+                   class="form-control"
+                   placeholder="Herrera"
+                   formControlName="rol"
             >
             <span class="form-text text-danger">
                         El precio debe de ser 0 o mayor
@@ -44,11 +74,11 @@
 
         <!-- Campo de existencias -->
         <div class="mb-3 row">
-          <label class="col-sm-3 col-form-label">Existencias</label>
+          <label class="col-sm-3 col-form-label">Email</label>
           <div class="col-sm-9">
             <input type="text"
                    class="form-control"
-                   placeholder="Existencias del producto"
+                   placeholder="neverLate@gmail.com"
                    formControlName="email"
 
             >
@@ -59,7 +89,7 @@
           </div>
         </div>
 
-
+        <!--Analizar que hago con esta lógica, tiene que esta dentro o fuera del form para enviar los datos-->
         <div class="row">
           <div class="col">
             <button type="submit"
@@ -77,6 +107,6 @@
 
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-  <button matButton mat-dialog-close>Cancel</button>
-  <button matButton [mat-dialog-close]="true" cdkFocusInitial>Install</button>
+  <button matButton mat-dialog-close>Cancelar</button>
+  <button matButton [mat-dialog-close]="true" cdkFocusInitial>Guardar usuario</button>
 </mat-dialog-actions>

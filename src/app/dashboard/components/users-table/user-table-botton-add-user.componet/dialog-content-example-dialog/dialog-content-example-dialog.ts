@@ -17,6 +17,8 @@ export class DialogContentExampleDialog {
   myForm = this.fb.group({
     name: [''],
     lastName: [''],
+    secondLastName: [''],
+    rol: [''],
     email: [''],
   })
 }
