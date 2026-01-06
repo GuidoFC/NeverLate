@@ -1,5 +1,6 @@
-import {Component} from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {UsersTableComponent} from '../../components/users-table/users-table.component';
+import {UserService} from '../../service/user.service';
 
 @Component({
   selector: 'user-page',
@@ -12,4 +13,5 @@ import {UsersTableComponent} from '../../components/users-table/users-table.comp
 })
 export default class UserPage {
 
+  public userService = inject(UserService);
 }
