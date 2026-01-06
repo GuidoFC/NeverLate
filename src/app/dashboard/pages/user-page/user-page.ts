@@ -38,7 +38,15 @@ const ELEMENT_DATA: TableUser[] = [
     secondLastName: 'Ruso',
     role: 'Prácticas',
     email: 'danylo@danylo.com'
-  }
+  },
+  {
+    id: 2,
+    firstName: 'GUIDO',
+    lastName: 'Castro',
+    secondLastName: '',
+    role: 'Responsable',
+    email: 'guido@guido.com'
+  },
 ];
 
 
