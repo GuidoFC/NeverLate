@@ -3,7 +3,7 @@ import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import {SelectionModel} from '@angular/cdk/collections';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatInputModule} from '@angular/material/input';
-import {MatPaginatorModule, MatPaginator} from '@angular/material/paginator';
+import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 
 
 export interface TableUser {
@@ -180,7 +180,6 @@ const ELEMENT_DATA: TableUser[] = [
 ];
 
 
-
 @Component({
   selector: 'user-page',
   imports: [
@@ -195,26 +194,38 @@ const ELEMENT_DATA: TableUser[] = [
 })
 export default class UserPage {
   displayedColumns: string[] = ['select', 'id', 'firstName', 'lastName', 'secondLastName', 'role', 'email'];
-  // dataSource = ELEMENT_DATA;
-  dataSource = new MatTableDataSource<TableUser>(ELEMENT_DATA);
+  // MatTableDataSource es una clase de angular materia que me permite insertar los datos en la tabla.
+  // gracias a esta clase puedo paginar, filtrar y ordenar.
+  tableUsersDataSource = new MatTableDataSource<TableUser>(ELEMENT_DATA);
 
   // numero de elementos
   totalElements: number = ELEMENT_DATA.length;
 
   selection = new SelectionModel<TableUser>(true, []);
 
+  // @ViewChild = acceder al HTML desde TS
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
+  // ngAfterViewInit se ejecuta después de que Angular renderiza el HTML
+  // Asignas el paginator a la tabla
+  // la tabla sabe qué paginator usar
+  // Tod_o lo que venga de @ViewChild se usa en ngAfterViewInit
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
+    this.tableUsersDataSource.paginator = this.paginator;
   }
 
   applyFilter(event: Event) {
+    // event.target es el elemento del DOM que disparó el evento
+    // para poder coger el valor del elemento que disparo el evento le tengo que decir a Typecript que es un elemento HTML
+    // y luego con .value cojo su valor
     const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+    this.tableUsersDataSource.filter = filterValue.trim().toLowerCase();
 
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
+    // sirve para evitar errores, comprobamos que el paginator ya funciona (esta vinculado la pagina
+    // con el paginator que hemos creado. El vinculo lo hemos creado en ngAfterViewInit())
+    if (this.tableUsersDataSource.paginator) {
+      // pone la pagina al indice 0
+      this.tableUsersDataSource.paginator.firstPage();
     }
   }
 
@@ -222,7 +233,7 @@ export default class UserPage {
   /** Whether the number of selected elements matches the total number of rows. */
   isAllSelected() {
     const numSelected = this.selection.selected.length;
-    const numRows = this.dataSource.data.length;
+    const numRows = this.tableUsersDataSource.data.length;
     return numSelected === numRows;
   }
 
@@ -233,18 +244,17 @@ export default class UserPage {
       return;
     }
 
-    this.selection.select(...this.dataSource.data);
+    this.selection.select(...this.tableUsersDataSource.data);
   }
 
   /** The label for the checkbox on the passed row */
+  // Mé_todo para las personas con problemas visuales.
   checkboxLabel(row?: TableUser): string {
     if (!row) {
       return `${this.isAllSelected() ? 'deselect' : 'select'} all`;
     }
     return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.id + 1}`;
   }
-
-
 
 
 }
