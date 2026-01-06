@@ -3,6 +3,7 @@ import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import {SelectionModel} from '@angular/cdk/collections';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatInputModule} from '@angular/material/input';
+import {MatSort, MatSortModule} from '@angular/material/sort';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 
 
@@ -186,7 +187,9 @@ const ELEMENT_DATA: TableUser[] = [
     MatTableModule,
     MatCheckboxModule,
     MatInputModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatSortModule,
+    MatSort
   ],
   standalone: true,
   templateUrl: './user-page.html',
@@ -204,7 +207,11 @@ export default class UserPage {
   selection = new SelectionModel<TableUser>(true, []);
 
   // @ViewChild = acceder al HTML desde TS
+// El operador "!" indica a TypeScript que esta propiedad
+// será inicializada por Angular después de que la vista se renderice. De esta forma evitamos que
+//   typescript se queje.
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
 
   // ngAfterViewInit se ejecuta después de que Angular renderiza el HTML
   // Asignas el paginator a la tabla
@@ -212,6 +219,7 @@ export default class UserPage {
   // Tod_o lo que venga de @ViewChild se usa en ngAfterViewInit
   ngAfterViewInit() {
     this.tableUsersDataSource.paginator = this.paginator;
+    this.tableUsersDataSource.sort = this.sort;
   }
 
   applyFilter(event: Event) {
