@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import {SelectionModel} from '@angular/cdk/collections';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatInputModule} from '@angular/material/input';
 
 export interface TableUser {
   id: number;
@@ -45,7 +46,8 @@ const ELEMENT_DATA: TableUser[] = [
   selector: 'user-page',
   imports: [
     MatTableModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatInputModule
   ],
   standalone: true,
   templateUrl: './user-page.html',
@@ -81,5 +83,14 @@ export default class UserPage {
       return `${this.isAllSelected() ? 'deselect' : 'select'} all`;
     }
     return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.id + 1}`;
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
 }
