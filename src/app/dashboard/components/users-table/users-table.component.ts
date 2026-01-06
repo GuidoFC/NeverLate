@@ -1,4 +1,4 @@
-import {Component, input, ViewChild} from '@angular/core';
+import {Component, effect, input, ViewChild} from '@angular/core';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import {SelectionModel} from '@angular/cdk/collections';
 import {MatCheckboxModule} from '@angular/material/checkbox';
@@ -6,6 +6,9 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSort, MatSortModule} from '@angular/material/sort';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import {TableUser} from '../../interface/interface-tableUser';
+import {
+  UserTableBottonAddUserComponet
+} from './user-table-botton-add-user.componet/user-table-botton-add-user.componet';
 
 
 
@@ -17,7 +20,8 @@ import {TableUser} from '../../interface/interface-tableUser';
     MatInputModule,
     MatPaginatorModule,
     MatSortModule,
-    MatSort
+    MatSort,
+    UserTableBottonAddUserComponet
   ],
   standalone: true,
   templateUrl: './users-table.component.html',
@@ -25,15 +29,22 @@ import {TableUser} from '../../interface/interface-tableUser';
 })
 export class UsersTableComponent {
 
-  ELEMENT_DATA= input.required<TableUser[]>()
+  dataUser= input.required<TableUser[]>()
 
   displayedColumns: string[] = ['select', 'id', 'firstName', 'lastName', 'secondLastName', 'role', 'email'];
   // MatTableDataSource es una clase de angular materia que me permite insertar los datos en la tabla.
   // gracias a esta clase puedo paginar, filtrar y ordenar.
-  tableUsersDataSource = new MatTableDataSource<TableUser>(this.ELEMENT_DATA());
+  // inicializamos la tabla vacia
+  tableUsersDataSource = new MatTableDataSource<TableUser>([]);
 
-  // numero de elementos
-  totalElements: number = this.ELEMENT_DATA.length;
+  totalElements = 0;
+  constructor() {
+    effect(() => {
+      this.tableUsersDataSource.data = this.dataUser();
+      this.totalElements = this.dataUser().length;
+    });
+  }
+
 
   selection = new SelectionModel<TableUser>(true, []);
 

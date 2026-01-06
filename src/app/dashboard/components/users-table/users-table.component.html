@@ -2,6 +2,9 @@
   <mat-label>Filtro</mat-label>
   <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mario" #inputFiltro>
 </mat-form-field>
+
+<user-table-botton-add-user />
+
 <table mat-table [dataSource]="tableUsersDataSource" matSort class="mat-elevation-z8">
 
   <!-- Checkbox Column -->
