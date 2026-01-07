@@ -3,7 +3,7 @@
   <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mario" #inputFiltro>
 </mat-form-field>
 
-<user-table-botton-add-user />
+<button matButton (click)="openDialog()">Open dialog</button>
 
 <table mat-table [dataSource]="tableUsersDataSource" matSort class="mat-elevation-z8">
 

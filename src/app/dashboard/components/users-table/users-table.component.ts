@@ -1,4 +1,4 @@
-import {Component, effect, input, ViewChild} from '@angular/core';
+import {Component, effect, inject, input, ViewChild} from '@angular/core';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import {SelectionModel} from '@angular/cdk/collections';
 import {MatCheckboxModule} from '@angular/material/checkbox';
@@ -6,10 +6,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSort, MatSortModule} from '@angular/material/sort';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import {TableUser} from '../../interface/interface-tableUser';
-import {
-  UserTableButtonAddUserComponent
-} from './users-table-dialog/user-table-button-add-user.component';
-
+import {MatDialog} from '@angular/material/dialog';
+import {AddUserDialog} from './users-table-dialog/add-user-dialog';
 
 
 @Component({
@@ -21,7 +19,6 @@ import {
     MatPaginatorModule,
     MatSortModule,
     MatSort,
-    UserTableButtonAddUserComponent
   ],
   standalone: true,
   templateUrl: './users-table.component.html',
@@ -29,7 +26,8 @@ import {
 })
 export class UsersTableComponent {
 
-  dataUser= input.required<TableUser[]>()
+  dataUser = input.required<TableUser[]>()
+  readonly dialog = inject(MatDialog);
 
   displayedColumns: string[] = ['select', 'id', 'firstName', 'lastName', 'secondLastName', 'role', 'email'];
   // MatTableDataSource es una clase de angular materia que me permite insertar los datos en la tabla.
@@ -38,10 +36,20 @@ export class UsersTableComponent {
   tableUsersDataSource = new MatTableDataSource<TableUser>([]);
 
   totalElements = 0;
+
   constructor() {
     effect(() => {
       this.tableUsersDataSource.data = this.dataUser();
       this.totalElements = this.dataUser().length;
+    });
+  }
+
+
+  openDialog() {
+    const dialogRef = this.dialog.open(AddUserDialog);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
     });
   }
 

@@ -2,8 +2,8 @@ import {Component, inject} from '@angular/core';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import {FormBuilder, ReactiveFormsModule, Validators} from '@angular/forms';
-import {UserService} from '../../../../service/user.service';
-import {TableUser} from '../../../../interface/interface-tableUser';
+import {UserService} from '../../../service/user.service';
+import {TableUser} from '../../../interface/interface-tableUser';
 
 @Component({
   selector: 'app-dialog-content-example-dialog',
