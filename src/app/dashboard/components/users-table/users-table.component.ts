@@ -8,7 +8,7 @@ import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import {TableUser} from '../../interface/interface-tableUser';
 import {
   UserTableButtonAddUserComponent
-} from './user-table-botton-add-user.componet/user-table-button-add-user.component';
+} from './users-table-dialog/user-table-button-add-user.component';
 
 
 

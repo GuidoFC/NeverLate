@@ -9,10 +9,10 @@ import {TableUser} from '../../../../interface/interface-tableUser';
   selector: 'app-dialog-content-example-dialog',
   imports: [MatDialogModule, MatButtonModule, ReactiveFormsModule],
   standalone: true,
-  templateUrl: './dialog-content-example-dialog.html',
+  templateUrl: './add-user-dialog.html',
   styles: ``,
 })
-export class DialogContentExampleDialog {
+export class AddUserDialog {
 
   private fb = inject(FormBuilder)
   private userService = inject(UserService)

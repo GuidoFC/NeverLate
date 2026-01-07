@@ -2,7 +2,7 @@
 
 import {Component, inject} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
-import {DialogContentExampleDialog} from './dialog-content-example-dialog/dialog-content-example-dialog';
+import {AddUserDialog} from './dialog-content-example-dialog/add-user-dialog';
 
 @Component({
   selector: 'user-table-botton-add-user',
@@ -16,7 +16,7 @@ export class UserTableButtonAddUserComponent {
   readonly dialog = inject(MatDialog);
 
   openDialog() {
-    const dialogRef = this.dialog.open(DialogContentExampleDialog);
+    const dialogRef = this.dialog.open(AddUserDialog);
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
