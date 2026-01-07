@@ -3,7 +3,7 @@
   <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mario" #inputFiltro>
 </mat-form-field>
 
-<button matButton (click)="openDialog()">Open dialog</button>
+<button mat-flat-button color="primary" class="ml-2" (click)="openDialog()">Añadir a usuario</button>
 
 <table mat-table [dataSource]="tableUsersDataSource" matSort class="mat-elevation-z8">
 

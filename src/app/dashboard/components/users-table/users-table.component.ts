@@ -8,6 +8,7 @@ import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import {TableUser} from '../../interface/interface-tableUser';
 import {MatDialog} from '@angular/material/dialog';
 import {AddUserDialog} from './users-table-dialog/add-user-dialog';
+import {MatButtonModule} from '@angular/material/button';
 
 
 @Component({
@@ -19,6 +20,7 @@ import {AddUserDialog} from './users-table-dialog/add-user-dialog';
     MatPaginatorModule,
     MatSortModule,
     MatSort,
+    MatButtonModule
   ],
   standalone: true,
   templateUrl: './users-table.component.html',
