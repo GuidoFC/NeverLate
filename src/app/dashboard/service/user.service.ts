@@ -174,4 +174,8 @@ export class UserService {
     return this.users;
   }
 
+  saveUSer(user: TableUser){
+    this.users.push(user)
+  }
+
 }
