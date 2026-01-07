@@ -1,89 +1,102 @@
-<mat-form-field>
-  <mat-label>Filtro</mat-label>
-  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mario" #inputFiltro>
-</mat-form-field>
+<div class="flex flex-col">
+  <button
+          class="w-24 bg-blue-500 hover:bg-blue-700 text-white text-lg py-2 px-4 rounded-full
+"
+          color="primary"
+          (click)="openDialog()">Crear usuario</button>
 
-<button mat-flat-button color="primary" class="ml-2" (click)="openDialog()">Añadir a usuario</button>
+  <div class="mt-5">
+    <mat-form-field>
+      <mat-label>Filtro</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mario" #inputFiltro>
+    </mat-form-field>
 
-<table mat-table [dataSource]="tableUsersDataSource" matSort class="mat-elevation-z8">
 
-  <!-- Checkbox Column -->
-  <!-- ng-container: indica que es una columna de la tabla  -->
-  <ng-container matColumnDef="select">
-    <!-- th: Define la celda de cabecera (<th>) de esta columna.   -->
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>
-      <mat-checkbox (change)="$event ? toggleAllRows() : null"
-                    [checked]="selection.hasValue() && isAllSelected()"
-                    [indeterminate]="selection.hasValue() && !isAllSelected()"
-                    [aria-label]="checkboxLabel()">
-      </mat-checkbox>
-    </th>
-    <!-- td_ Define la celda de datos (<td>) para cada fila.    -->
-    <!-- "row" es el objeto TableUser de esa fila, es decir, por cada checkbox, le paso la información
-       de su respectiva fila a este componente-->
-    <!--  (change) notifica a SelectionModel para seleccionar o deseleccionar la fila -->
-    <!-- [checked] refleja visualmente en el checkbox si la fila está seleccionada o no  -->
-    <td mat-cell *matCellDef="let row">
-      <mat-checkbox (click)="$event.stopPropagation()"
-                    (change)="$event ? selection.toggle(row) : null"
-                    [checked]="selection.isSelected(row)"
-                    [aria-label]="checkboxLabel(row)">
-      </mat-checkbox>
-    </td>
-  </ng-container>
+    <table mat-table [dataSource]="tableUsersDataSource" matSort class="mat-elevation-z8">
 
-  <!-- Position Column -->
-  <!-- matColumnDef="id": debe coincidir con displayedColumns. Identifica qué datos se mostrarán  -->
-  <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> Id.</th>
-    <td mat-cell *matCellDef="let element"> {{ element.id }}</td>
-  </ng-container>
+      <!-- Checkbox Column -->
+      <!-- ng-container: indica que es una columna de la tabla  -->
+      <ng-container matColumnDef="select">
+        <!-- th: Define la celda de cabecera (<th>) de esta columna.   -->
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          <mat-checkbox (change)="$event ? toggleAllRows() : null"
+                        [checked]="selection.hasValue() && isAllSelected()"
+                        [indeterminate]="selection.hasValue() && !isAllSelected()"
+                        [aria-label]="checkboxLabel()">
+          </mat-checkbox>
+        </th>
+        <!-- td_ Define la celda de datos (<td>) para cada fila.    -->
+        <!-- "row" es el objeto TableUser de esa fila, es decir, por cada checkbox, le paso la información
+           de su respectiva fila a este componente-->
+        <!--  (change) notifica a SelectionModel para seleccionar o deseleccionar la fila -->
+        <!-- [checked] refleja visualmente en el checkbox si la fila está seleccionada o no  -->
+        <td mat-cell *matCellDef="let row">
+          <mat-checkbox (click)="$event.stopPropagation()"
+                        (change)="$event ? selection.toggle(row) : null"
+                        [checked]="selection.isSelected(row)"
+                        [aria-label]="checkboxLabel(row)">
+          </mat-checkbox>
+        </td>
+      </ng-container>
 
-  <!-- Name Column -->
-  <ng-container matColumnDef="firstName">
-    <!-- mat-header-cell: aplica estilos
-      *matHeaderCellDef: le dice a angular que este es la cabecera de la columna-->
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre</th>
-    <td mat-cell *matCellDef="let element"> {{ element.firstName }}</td>
-  </ng-container>
+      <!-- Position Column -->
+      <!-- matColumnDef="id": debe coincidir con displayedColumns. Identifica qué datos se mostrarán  -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Id.</th>
+        <td mat-cell *matCellDef="let element"> {{ element.id }}</td>
+      </ng-container>
 
-  <!-- Weight Column -->
-  <ng-container matColumnDef="lastName">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> 1r Apellido</th>
-    <td mat-cell *matCellDef="let element"> {{ element.lastName }}</td>
-  </ng-container>
+      <!-- Name Column -->
+      <ng-container matColumnDef="firstName">
+        <!-- mat-header-cell: aplica estilos
+          *matHeaderCellDef: le dice a angular que este es la cabecera de la columna-->
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre</th>
+        <td mat-cell *matCellDef="let element"> {{ element.firstName }}</td>
+      </ng-container>
 
-  <!-- Symbol Column -->
-  <ng-container matColumnDef="secondLastName">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> 2n Apellido</th>
-    <td mat-cell *matCellDef="let element"> {{ element.secondLastName }}</td>
-  </ng-container>
+      <!-- Weight Column -->
+      <ng-container matColumnDef="lastName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> 1r Apellido</th>
+        <td mat-cell *matCellDef="let element"> {{ element.lastName }}</td>
+      </ng-container>
 
-  <ng-container matColumnDef="role">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> Rol</th>
-    <td mat-cell *matCellDef="let element"> {{ element.role }}</td>
-  </ng-container>
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="secondLastName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> 2n Apellido</th>
+        <td mat-cell *matCellDef="let element"> {{ element.secondLastName }}</td>
+      </ng-container>
 
-  <ng-container matColumnDef="email">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> Email</th>
-    <td mat-cell *matCellDef="let element"> {{ element.email }}</td>
-  </ng-container>
+      <ng-container matColumnDef="role">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Rol</th>
+        <td mat-cell *matCellDef="let element"> {{ element.role }}</td>
+      </ng-container>
 
-  <!-- mat-header-row → indica que es la fila de cabecera
-  *matHeaderRowDef="displayedColumns": le dice a Angular Material: “crea el header usando estas columnas”-->
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <!--  Crea una fila por cada elemento del dataSource y le da el nombre row a ese elemento.-->
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Email</th>
+        <td mat-cell *matCellDef="let element"> {{ element.email }}</td>
+      </ng-container>
 
-  <!--  <tr class="mat-row" *matNoDataRow>-->
-  <!--    <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>-->
-  <!--  </tr>-->
-</table>
+      <!-- mat-header-row → indica que es la fila de cabecera
+      *matHeaderRowDef="displayedColumns": le dice a Angular Material: “crea el header usando estas columnas”-->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <!--  Crea una fila por cada elemento del dataSource y le da el nombre row a ese elemento.-->
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
-<mat-paginator
-  [length]="totalElements"
-  [pageSize]="5"
-  [pageSizeOptions]="[5, 10, 25, 100]"
-  showFirstLastButtons
-  aria-label="Select page">
-</mat-paginator>
+      <!--  <tr class="mat-row" *matNoDataRow>-->
+      <!--    <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>-->
+      <!--  </tr>-->
+    </table>
+
+    <mat-paginator
+      [length]="totalElements"
+      [pageSize]="5"
+      [pageSizeOptions]="[5, 10, 25, 100]"
+      showFirstLastButtons
+      aria-label="Select page">
+    </mat-paginator>
+
+
+  </div>
+
+</div>
+
