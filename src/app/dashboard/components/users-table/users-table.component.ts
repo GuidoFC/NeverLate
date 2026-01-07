@@ -7,8 +7,8 @@ import {MatSort, MatSortModule} from '@angular/material/sort';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import {TableUser} from '../../interface/interface-tableUser';
 import {
-  UserTableBottonAddUserComponet
-} from './user-table-botton-add-user.componet/user-table-botton-add-user.componet';
+  UserTableButtonAddUserComponent
+} from './user-table-botton-add-user.componet/user-table-button-add-user.component';
 
 
 
@@ -21,7 +21,7 @@ import {
     MatPaginatorModule,
     MatSortModule,
     MatSort,
-    UserTableBottonAddUserComponet
+    UserTableButtonAddUserComponent
   ],
   standalone: true,
   templateUrl: './users-table.component.html',

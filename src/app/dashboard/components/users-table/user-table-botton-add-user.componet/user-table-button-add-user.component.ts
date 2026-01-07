@@ -11,7 +11,7 @@ import {DialogContentExampleDialog} from './dialog-content-example-dialog/dialog
   templateUrl: './user-table-button-add-user.component.html',
   styles: ``,
 })
-export class UserTableBottonAddUserComponet {
+export class UserTableButtonAddUserComponent {
 
   readonly dialog = inject(MatDialog);
 
