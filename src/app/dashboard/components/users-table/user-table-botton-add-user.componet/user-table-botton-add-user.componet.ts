@@ -8,7 +8,7 @@ import {DialogContentExampleDialog} from './dialog-content-example-dialog/dialog
   selector: 'user-table-botton-add-user',
   imports: [],
   standalone: true,
-  templateUrl: './user-table-botton-add-user.componet.html',
+  templateUrl: './user-table-button-add-user.component.html',
   styles: ``,
 })
 export class UserTableBottonAddUserComponet {
