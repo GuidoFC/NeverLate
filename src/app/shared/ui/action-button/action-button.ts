@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, input, output} from '@angular/core';
 
 @Component({
   selector: 'action-button',
@@ -9,4 +9,10 @@ import { Component } from '@angular/core';
 })
 export class ActionButton {
 
+  title = input.required<string>()
+  enviarSenal = output<void>();
+
+  onClick(): void {
+    this.enviarSenal.emit();
+  }
 }
