@@ -1,4 +1,4 @@
-import {Component, effect, inject, input, ViewChild} from '@angular/core';
+import {Component, effect, inject, input, output, ViewChild} from '@angular/core';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import {SelectionModel} from '@angular/cdk/collections';
 import {MatCheckboxModule} from '@angular/material/checkbox';
@@ -9,6 +9,7 @@ import {TableUser} from '../../interface/interface-tableUser';
 import {MatDialog} from '@angular/material/dialog';
 import {AddUserDialog} from './users-table-dialog/add-user-dialog';
 import {MatButtonModule} from '@angular/material/button';
+import {ActionButton} from '../../../shared/ui/action-button/action-button';
 
 
 @Component({
@@ -20,7 +21,8 @@ import {MatButtonModule} from '@angular/material/button';
     MatPaginatorModule,
     MatSortModule,
     MatSort,
-    MatButtonModule
+    MatButtonModule,
+    ActionButton
   ],
   standalone: true,
   templateUrl: './users-table.component.html',
@@ -29,6 +31,9 @@ import {MatButtonModule} from '@angular/material/button';
 export class UsersTableComponent {
 
   dataUser = input.required<TableUser[]>()
+  userCreated  = output<TableUser>();
+// Inyecto el servicio MatDialog de Angular Material,
+// que me permite abrir componentes como diálogos
   readonly dialog = inject(MatDialog);
 
   displayedColumns: string[] = ['select', 'id', 'firstName', 'lastName', 'secondLastName', 'role', 'email'];
@@ -48,10 +53,14 @@ export class UsersTableComponent {
 
 
   openDialog() {
+    // Abro el componente AddUserDialog y lo muestro como un diálogo.
     const dialogRef = this.dialog.open(AddUserDialog);
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+    dialogRef.afterClosed().subscribe(user => {
+      // hacer comprobaciones antes de guardar
+      // guardar los datos en el servicio de USUARIO
+      console.log('Usuario recibido:', user);
+      this.userCreated.emit(user);
     });
   }
 
