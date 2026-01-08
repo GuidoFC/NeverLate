@@ -1,6 +1,7 @@
 import {Component, inject} from '@angular/core';
 import {UsersTableComponent} from '../../components/users-table/users-table.component';
 import {UserService} from '../../service/user.service';
+import {TableUser} from '../../interface/interface-tableUser';
 
 @Component({
   selector: 'user-page',
@@ -14,4 +15,8 @@ import {UserService} from '../../service/user.service';
 export default class UserPage {
 
   public userService = inject(UserService);
+
+  createUser(newUSer: TableUser) {
+    this.userService.saveUSer(newUSer);
+  }
 }
