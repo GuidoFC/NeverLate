@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {Injectable, signal} from '@angular/core';
 import {TableUser} from '../interface/interface-tableUser';
 
 @Injectable({
@@ -6,7 +6,7 @@ import {TableUser} from '../interface/interface-tableUser';
 })
 export class UserService {
 
-  private users: TableUser[] = [
+  private users = signal<TableUser[]>([
     {
       id: 1,
       firstName: 'Alex',
@@ -167,15 +167,18 @@ export class UserService {
       role: 'Usuario',
       email: 'oscar@empresa.com'
     }
-  ];
+  ]);
 
 
   getAllUser(): TableUser[] {
-    return this.users;
+    return this.users();
   }
 
-  saveUSer(user: TableUser){
-    this.users.push(user)
+  saveUSer(user: TableUser) {
+    // Todo antes de guardar, tendria que hacer comprobaciones
+    // Todo tengo que hacer uso de signals para guardar la información
+    // TODO comprobar que el email no se repite. Donde se hacen las comprobaciones? Formulario, servicio o backend??
+    this.users.update((prev) => [...prev, user]);
   }
 
 }
