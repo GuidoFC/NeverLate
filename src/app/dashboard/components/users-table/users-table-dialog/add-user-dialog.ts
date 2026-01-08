@@ -1,8 +1,7 @@
 import {Component, inject} from '@angular/core';
-import {MatDialogModule} from '@angular/material/dialog';
+import {MatDialogModule, MatDialogRef} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import {FormBuilder, ReactiveFormsModule, Validators} from '@angular/forms';
-import {UserService} from '../../../service/user.service';
 import {TableUser} from '../../../interface/interface-tableUser';
 
 @Component({
@@ -15,8 +14,9 @@ import {TableUser} from '../../../interface/interface-tableUser';
 export class AddUserDialog {
 
   private fb = inject(FormBuilder)
-  private userService = inject(UserService)
-
+// Inyecto la referencia al diálogo que Angular Material ha abierto.
+// Me permite cerrar este diálogo y devolver datos al componente que lo abrió.
+  private dialogRef = inject(MatDialogRef<AddUserDialog>);
 
   myForm = this.fb.group({
     name: ['Patty', [Validators.required, Validators.minLength(3)]],
@@ -28,6 +28,10 @@ export class AddUserDialog {
 
 
   saveUser() {
+    if (this.myForm.invalid) return;
+    // TODO en el formuario tengo que avisar antes de que de guardar
+    // si hay algun error, especificar cual es el error para ofrecer
+    // una mejor experiencia de usaurio
     const newUser: TableUser = {
       id: 10,
       firstName: this.myForm.value.name!,
@@ -36,7 +40,9 @@ export class AddUserDialog {
       role: this.myForm.value.rol!,
       email: this.myForm.value.email!,
     };
-    this.userService.saveUSer(newUser)
+    // Cierra este diálogo y devuelve newUser al componente que abrio este dialogo
+    this.dialogRef.close(newUser);
 
   }
+
 }
