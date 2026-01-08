@@ -5,7 +5,7 @@ import {FormBuilder, ReactiveFormsModule, Validators} from '@angular/forms';
 import {TableUser} from '../../../interface/interface-tableUser';
 
 @Component({
-  selector: 'app-dialog-content-example-dialog',
+  selector: 'add-user-dialog',
   imports: [MatDialogModule, MatButtonModule, ReactiveFormsModule],
   standalone: true,
   templateUrl: './add-user-dialog.html',
