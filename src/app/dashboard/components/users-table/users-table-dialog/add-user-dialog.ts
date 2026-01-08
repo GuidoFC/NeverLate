@@ -16,7 +16,8 @@ export class AddUserDialog {
   private fb = inject(FormBuilder)
 // Inyecto la referencia al diálogo que Angular Material ha abierto.
 // Me permite cerrar este diálogo y devolver datos al componente que lo abrió.
-  private dialogRef = inject(MatDialogRef<AddUserDialog>);
+// Decimos el tipo de dato de devuelve este dialogo, en este caso TableUser
+  private dialogRef = inject(MatDialogRef<AddUserDialog, TableUser>);
 
   myForm = this.fb.group({
     name: ['Patty', [Validators.required, Validators.minLength(3)]],
