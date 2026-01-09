@@ -1,112 +1,83 @@
-<h2 mat-dialog-title>Añadir a un usuario</h2>
-<mat-dialog-content class="mat-typography">
+<!-- component -->
+<div class="my-5">
+  <!-- Main container for the form, responsive to screen sizes -->
+  <div
+    class="container mx-auto max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl shadow-md dark:shadow-white py-4 px-6 sm:px-10 bg-white dark:bg-gray-800 border-emerald-500 rounded-md">
 
-  <div class="row">
-    <div class="col">
+    <!-- Back button -->
+    <a href="#" class="px-4 py-2 bg-red-500 rounded-md text-white text-sm sm:text-lg shadow-md">Cancelar</a>
 
-      <!--    formGroup es parte de modulo ReactiveFormsModule que hemos importado.
-               Lo usamos para vincular el formulario HTML con el FormGroup
-               definido en el componente .ts -->
+    <div class="my-3">
+      <!-- Form title -->
+      <h2 class="text-center text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">Añadir a un usuario</h2>
+
+
       <form autocomplete="off" [formGroup]="myForm">
 
-        <!-- Campo de producto -->
-        <div class="mb-3 row">
-          <label class="col-sm-3 col-form-label">Nombre</label>
-          <div class="col-sm-9">
-
-            <input type="text"
-                   class="form-control"
-                   placeholder="Antonio"
-                   formControlName="name"
-            >
-
-            <span class="form-text text-danger">
-                        <!-- Debe de ser de 3 letras -->
-                        error message
-                    </span>
-          </div>
+        <!-- Input field for 'Name' -->
+        <div class="my-2">
+          <label class="text-sm sm:text-md font-bold text-gray-700 dark:text-gray-300">Nombre</label>
+          <input type="text" name="name"
+                 class="block w-full border border-emerald-500 outline-emerald-800 px-2 py-2 text-sm sm:text-md rounded-md my-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                 placeholder="Antonio"
+                 formControlName="name"
+          >
         </div>
 
-        <!-- Campo de 1r apellido -->
-        <div class="mb-3 row">
-          <label class="col-sm-3 col-form-label">1r Apellido</label>
-          <div class="col-sm-9">
-            <input type="text"
-                   class="form-control"
-                   placeholder="Fernandez"
-                   formControlName="lastName"
-            >
-            <span class="form-text text-danger">
-                        El precio debe de ser 0 o mayor
-                    </span>
-          </div>
+        <!--  1r apellido -->
+        <div class="my-2">
+          <label class="text-sm sm:text-md font-bold text-gray-700 dark:text-gray-300">1r Apellido</label>
+          <input type="text" name="name"
+                 class="block w-full border border-emerald-500 outline-emerald-800 px-2 py-2 text-sm sm:text-md rounded-md my-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                 placeholder="Fernandez"
+                 formControlName="lastName"
+          >
         </div>
+
 
         <!-- Campo de 2n apellido -->
-        <div class="mb-3 row">
-          <label class="col-sm-3 col-form-label">2n Apellido</label>
-          <div class="col-sm-9">
-            <input type="text"
-                   class="form-control"
-                   placeholder="Herrera"
-                   formControlName="secondLastName"
-            >
-            <span class="form-text text-danger">
-                        El precio debe de ser 0 o mayor
-                    </span>
-          </div>
+        <div class="my-2">
+          <label class="text-sm sm:text-md font-bold text-gray-700 dark:text-gray-300">2n Apellido</label>
+          <input type="text" name="name"
+                 class="block w-full border border-emerald-500 outline-emerald-800 px-2 py-2 text-sm sm:text-md rounded-md my-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                 placeholder="Fernandez"
+                 formControlName="secondLastName"
+          >
         </div>
+
 
         <!-- Campo de Rol -->
-        <div class="mb-3 row">
-          <label class="col-sm-3 col-form-label">Rol PENDIENTE HACER UN SELECT</label>
-          <div class="col-sm-9">
-            <input type="text"
-                   class="form-control"
-                   placeholder="Herrera"
-                   formControlName="rol"
-            >
-            <span class="form-text text-danger">
-                        El precio debe de ser 0 o mayor
-                    </span>
-          </div>
+        <div class="my-2">
+          <label class="text-sm sm:text-md font-bold text-gray-700 dark:text-gray-300">Rol PENDIENTE HACER UN
+            SELECT</label>
+          <input type="text" name="name"
+                 class="block w-full border border-emerald-500 outline-emerald-800 px-2 py-2 text-sm sm:text-md rounded-md my-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                 placeholder="empresario"
+                 formControlName="rol"
+          >
         </div>
 
-        <!-- Campo de existencias -->
-        <div class="mb-3 row">
-          <label class="col-sm-3 col-form-label">Email</label>
-          <div class="col-sm-9">
-            <input type="text"
-                   class="form-control"
-                   placeholder="neverLate@gmail.com"
-                   formControlName="email"
 
-            >
-
-            <span class="form-text text-danger">
-                         Las existencias deben de ser 0 o mayor
-                    </span>
-          </div>
+        <!-- Campo de email -->
+        <div class="my-2">
+          <label class="text-sm sm:text-md font-bold text-gray-700 dark:text-gray-300">email</label>
+          <input type="text" name="name"
+                 class="block w-full border border-emerald-500 outline-emerald-800 px-2 py-2 text-sm sm:text-md rounded-md my-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                 placeholder="neverLate@gmail.com"
+                 formControlName="email"
+          >
         </div>
-
-        <!--Analizar que hago con esta lógica, tiene que esta dentro o fuera del form para enviar los datos-->
-        <div class="row">
-          <div class="col">
-            <button type="submit"
-                    class="btn btn-primary float-end">
-              Guardar
-            </button>
-          </div>
-        </div>
-
 
       </form>
 
+      <mat-dialog-actions align="end">
+        <button class="px-4 py-1 bg-emerald-500 rounded-md text-black text-sm sm:text-lg shadow-md" (click)="saveUser()"
+                cdkFocusInitial>Guardar usuario
+        </button>
+      </mat-dialog-actions>
     </div>
   </div>
+</div>
 
-</mat-dialog-content>
-<mat-dialog-actions align="end">
-  <button matButton mat-dialog-close>Cancelar</button>
-  <button matButton (click)="saveUser()" cdkFocusInitial>Guardar usuario</button>
-</mat-dialog-actions>
+
+

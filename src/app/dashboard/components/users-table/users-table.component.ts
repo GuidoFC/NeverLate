@@ -54,7 +54,12 @@ export class UsersTableComponent {
 
   openDialog() {
     // Abro el componente AddUserDialog y lo muestro como un diálogo.
-    const dialogRef = this.dialog.open(AddUserDialog);
+    const dialogRef = this.dialog.open(AddUserDialog, {
+      width: '90vw',
+      maxWidth: '520px',
+      maxHeight: '90vh',
+      panelClass: 'responsive-dialog'
+    });
 
     dialogRef.afterClosed().subscribe(user => {
       // hacer comprobaciones antes de guardar
