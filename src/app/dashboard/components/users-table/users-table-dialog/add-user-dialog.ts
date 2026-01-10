@@ -3,10 +3,12 @@ import {MatDialogModule, MatDialogRef} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import {FormBuilder, ReactiveFormsModule, Validators} from '@angular/forms';
 import {TableUser} from '../../../interface/interface-tableUser';
+import {JsonPipe} from '@angular/common';
+import {FormError} from '../../../../shared/form/form-error/form-error';
 
 @Component({
   selector: 'add-user-dialog',
-  imports: [MatDialogModule, MatButtonModule, ReactiveFormsModule],
+  imports: [MatDialogModule, MatButtonModule, ReactiveFormsModule, JsonPipe, FormError],
   standalone: true,
   templateUrl: './add-user-dialog.html',
   styles: ``,
@@ -20,16 +22,20 @@ export class AddUserDialog {
   private dialogRef = inject(MatDialogRef<AddUserDialog, TableUser>);
 
   myForm = this.fb.group({
-    name: ['Patty', [Validators.required, Validators.minLength(3)]],
-    lastName: ['Castro', Validators.required],
-    secondLastName: ['saltos'],
-    rol: ['Empresaria', Validators.required],
-    email: ['jaja@gmail.com', [Validators.required, Validators.email]],
+    name: ['', [Validators.required, Validators.minLength(3)]],
+    lastName: ['', Validators.required],
+    secondLastName: [''],
+    rol: ['', Validators.required],
+    email: ['', [Validators.required, Validators.email]],
   });
 
 
   saveUser() {
-    if (this.myForm.invalid) return;
+    if (this.myForm.invalid) {
+      this.myForm.markAllAsTouched()
+
+      return
+    }
     // TODO en el formuario tengo que avisar antes de que de guardar
     // si hay algun error, especificar cual es el error para ofrecer
     // una mejor experiencia de usaurio

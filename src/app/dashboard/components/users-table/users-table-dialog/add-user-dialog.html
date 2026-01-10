@@ -1,3 +1,13 @@
+<!--
+Todo:
+1. Deshabilitar el boton de guardar si el formulario no es valido
+2. Mostrar errores si el usuario no ha rellenado los datos correctamente
+ No me permita guardar a un usuario si este tiene el mismo correo
+ Tengo que haber seleccionado un rol para poder guardar al usuario
+3. Mostrar feedback si el usuario se ha creado o no correctamente
+
+-->
+
 <!-- component -->
 <div class="my-5">
   <!-- Main container for the form, responsive to screen sizes -->
@@ -22,6 +32,7 @@
                  placeholder="Antonio"
                  formControlName="name"
           >
+          <form-error [form]="myForm" [formControlName]="'name'"/>
         </div>
 
         <!--  1r apellido -->
