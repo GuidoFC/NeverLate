@@ -22,11 +22,11 @@ export class AddUserDialog {
   private dialogRef = inject(MatDialogRef<AddUserDialog, TableUser>);
 
   myForm = this.fb.group({
-    name: ['', [Validators.required, Validators.minLength(3)]],
-    lastName: ['', Validators.required],
-    secondLastName: [''],
+    name: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
+    lastName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
+    secondLastName: ['', Validators.maxLength(20)],
     rol: ['', Validators.required],
-    email: ['', [Validators.required, Validators.email]],
+    email: ['', [Validators.required, Validators.email, Validators.maxLength(100)]],
   });
 
 
