@@ -1,14 +1,16 @@
 <div class="flex flex-col">
-  <div class="bg-red-100 flex justify-between">
+  <div class="flex justify-between">
 
     <action-button
       [title]="'Crear usuario'"
-      (enviarSenal)="openDialog()">
+      (enviarSenal)="openDialog()" [colorButton]="'blue'">
     </action-button>
 
+    <!--  TODO pendiente de abrir dialogo para indicar los usuarios
+      seleccionados y que pasaran a deshabilitarse-->
     <action-button
       [title]="'Desabilitar usuario'"
-      (enviarSenal)="openDialog()">
+      (enviarSenal)="openDialog()" [colorButton]="'red'">
     </action-button>
   </div>
 
