@@ -63,7 +63,6 @@ export class UsersTableComponent {
     });
 
     dialogRef.afterClosed().subscribe(user => {
-      console.log('The dialog was closed');
       // hacer comprobaciones antes de guardar
       // guardar los datos en el servicio de USUARIO
       if (user) {
