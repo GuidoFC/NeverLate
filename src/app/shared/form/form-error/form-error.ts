@@ -1,9 +1,9 @@
 import {Component, input} from '@angular/core';
-import {FormGroup} from '@angular/forms';
+import {FormGroup, ReactiveFormsModule} from '@angular/forms';
 
 @Component({
   selector: 'form-error',
-  imports: [],
+  imports: [ReactiveFormsModule],
   standalone: true,
   templateUrl: './form-error.html',
   styles: ``,
@@ -11,7 +11,7 @@ import {FormGroup} from '@angular/forms';
 export class FormError {
 
   form = input.required<FormGroup>()
-  formControlName = input.required<string>()
+  formNameSignal = input.required<string>()
   // myFormRecived = input
 
   // mirar si hay un error

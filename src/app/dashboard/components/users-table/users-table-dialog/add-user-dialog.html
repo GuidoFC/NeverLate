@@ -32,7 +32,7 @@ Todo:
                  placeholder="Antonio"
                  formControlName="name"
           >
-          <form-error [form]="myForm" [formControlName]="'name'"/>
+          <form-error [form]="myForm" [formNameSignal]="'name'"/>
         </div>
 
         <!--  1r apellido -->
@@ -43,6 +43,7 @@ Todo:
                  placeholder="Fernandez"
                  formControlName="lastName"
           >
+          <form-error [form]="myForm" [formNameSignal]="'lastName'"/>
         </div>
 
 
@@ -54,6 +55,7 @@ Todo:
                  placeholder="Fernandez"
                  formControlName="secondLastName"
           >
+          <form-error [form]="myForm" [formNameSignal]="'secondLastName'"/>
         </div>
 
 
@@ -71,7 +73,7 @@ Todo:
             <option value="3">Administrado</option>
             <option value="4">Prácticas</option>
           </select>
-
+          <form-error [form]="myForm" [formNameSignal]="'rol'"/>
         </div>
 
 
@@ -83,8 +85,8 @@ Todo:
                  placeholder="neverLate@gmail.com"
                  formControlName="email"
           >
+          <form-error [form]="myForm" [formNameSignal]="'email'"/>
         </div>
-
       </form>
 
       <mat-dialog-actions align="end">
