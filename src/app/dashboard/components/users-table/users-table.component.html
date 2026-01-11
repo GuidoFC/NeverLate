@@ -1,8 +1,16 @@
 <div class="flex flex-col">
-  <action-button
-    [title]="'Crear usuario'"
-    (enviarSenal)="openDialog()">
-  </action-button>
+  <div class="bg-red-100 flex justify-between">
+
+    <action-button
+      [title]="'Crear usuario'"
+      (enviarSenal)="openDialog()">
+    </action-button>
+
+    <action-button
+      [title]="'Desabilitar usuario'"
+      (enviarSenal)="openDialog()">
+    </action-button>
+  </div>
 
 
   <div class="mt-5">
