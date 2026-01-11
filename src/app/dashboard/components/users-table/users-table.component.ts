@@ -58,7 +58,8 @@ export class UsersTableComponent {
       width: '90vw',
       maxWidth: '520px',
       maxHeight: '90vh',
-      panelClass: 'responsive-dialog'
+      panelClass: 'responsive-dialog',
+      disableClose: true,
     });
 
     dialogRef.afterClosed().subscribe(user => {
