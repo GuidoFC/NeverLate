@@ -3,12 +3,11 @@ import {MatDialogModule, MatDialogRef} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import {FormBuilder, ReactiveFormsModule, Validators} from '@angular/forms';
 import {TableUser} from '../../../interface/interface-tableUser';
-import {JsonPipe} from '@angular/common';
 import {FormError} from '../../../../shared/form/form-error/form-error';
 
 @Component({
   selector: 'add-user-dialog',
-  imports: [MatDialogModule, MatButtonModule, ReactiveFormsModule, JsonPipe, FormError],
+  imports: [MatDialogModule, MatButtonModule, ReactiveFormsModule, FormError],
   standalone: true,
   templateUrl: './add-user-dialog.html',
   styles: ``,
