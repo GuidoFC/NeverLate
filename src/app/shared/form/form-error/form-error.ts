@@ -26,6 +26,7 @@ export class FormError {
     const errors = this.form().controls[fieldName].errors ?? {};
 
     for (const key of Object.keys(errors)) {
+      // console.log("Ver la Key del error ", key)
       switch (key) {
         case 'required':
           return "Este campo es requerido"
@@ -34,9 +35,10 @@ export class FormError {
 
         case 'maxlength':
           return `Máximo de ${errors['maxlength'].requiredLength} caracteres`
-
         case 'min':
           return `Valos mínimo de ${errors['min'].min}`
+        case 'email':
+          return `Introduce un email válido (ej: usuario@dominio.com)`
       }
 
     }
