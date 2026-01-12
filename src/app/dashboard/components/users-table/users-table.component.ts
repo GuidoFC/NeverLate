@@ -5,7 +5,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatInputModule} from '@angular/material/input';
 import {MatSort, MatSortModule} from '@angular/material/sort';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
-import {TableUser} from '../../interface/interface-tableUser';
+import {user_worker} from '../../interface/interface-tableUser';
 import {MatDialog} from '@angular/material/dialog';
 import {AddUserDialog} from './users-table-dialog/add-user-dialog';
 import {MatButtonModule} from '@angular/material/button';
@@ -30,8 +30,8 @@ import {ActionButton} from '../../../shared/ui/action-button/action-button';
 })
 export class UsersTableComponent {
 
-  dataUser = input.required<TableUser[]>()
-  userCreated  = output<TableUser>();
+  dataUser = input.required<user_worker[]>()
+  userCreated = output<user_worker>();
 // Inyecto el servicio MatDialog de Angular Material,
 // que me permite abrir componentes como diálogos
   readonly dialog = inject(MatDialog);
@@ -40,7 +40,7 @@ export class UsersTableComponent {
   // MatTableDataSource es una clase de angular materia que me permite insertar los datos en la tabla.
   // gracias a esta clase puedo paginar, filtrar y ordenar.
   // inicializamos la tabla vacia
-  tableUsersDataSource = new MatTableDataSource<TableUser>([]);
+  tableUsersDataSource = new MatTableDataSource<user_worker>([]);
 
   totalElements = 0;
 
@@ -52,7 +52,7 @@ export class UsersTableComponent {
   }
 
 
-  openDialog() {
+  openDialogCreateUser() {
     // Abro el componente AddUserDialog y lo muestro como un diálogo.
     const dialogRef = this.dialog.open(AddUserDialog, {
       width: '90vw',
@@ -73,7 +73,37 @@ export class UsersTableComponent {
   }
 
 
-  selection = new SelectionModel<TableUser>(true, []);
+  openDialogDisableUser() {
+    const selectedUsers = this.selection.selected;
+    console.log("usuarios seleccionados: ", selectedUsers)
+
+    if (selectedUsers.length === 0) {
+      // Todo avisar que no se ha seleccionado ningun usuario
+      return;
+    }
+
+    const dialogRef = this.dialog.open(DisableUser, {
+      width: '90vw',
+      maxWidth: '520px',
+      maxHeight: '90vh',
+      panelClass: 'responsive-dialog',
+      disableClose: true,
+      data: selectedUsers,
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        console.log('Usuarios deshabilitados:', result);
+
+        // limpiar selección si quieres
+        this.selection.clear();
+      }
+    });
+  }
+
+
+
+  selection = new SelectionModel<user_worker>(true, []);
 
   // @ViewChild = acceder al HTML desde TS
 // El operador "!" indica a TypeScript que esta propiedad
@@ -126,7 +156,7 @@ export class UsersTableComponent {
 
   /** The label for the checkbox on the passed row */
   // Mé_todo para las personas con problemas visuales.
-  checkboxLabel(row?: TableUser): string {
+  checkboxLabel(row?: user_worker): string {
     if (!row) {
       return `${this.isAllSelected() ? 'deselect' : 'select'} all`;
     }
