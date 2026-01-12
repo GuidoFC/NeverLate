@@ -1,0 +1,17 @@
+<div class="my-5">
+
+  <h1 class="ml-5">Se va a deshabilitar a los siguientes usuarios</h1>
+
+
+  <mat-list>
+    @for (user of users; track user.id) {
+      <mat-list-item><strong> Nombre: </strong> {{ user.firstName }} <strong>
+        Apellido:</strong>   {{ user.lastName }}
+      </mat-list-item>
+    }
+  </mat-list>
+
+  <button class="ml-5" (click)="disable()"> Borrar</button>
+
+</div>
+

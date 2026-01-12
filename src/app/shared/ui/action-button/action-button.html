@@ -1,4 +1,5 @@
 <button
+  [disabled]="disable()"
   class="w-auto text-white text-lg py-2 px-4 rounded-full"
   [class]="chooseColorButton()"
   (click)="onClick()"> {{ title() }}

@@ -13,6 +13,7 @@ export class ActionButton {
   title = input.required<string>()
   colorButton = input.required<ButtonColor>()
   enviarSenal = output<void>();
+  disable = input<boolean>(false);
 
   onClick(): void {
     this.enviarSenal.emit();
