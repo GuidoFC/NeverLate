@@ -8,17 +8,12 @@
 
     <!--  TODO pendiente de abrir dialogo para indicar los usuarios
       seleccionados y que pasaran a deshabilitarse-->
-    <div>
-
-      @if (this.isButtonDisable()) {
         <action-button
           [title]="'Desabilitar usuario'"
           (enviarSenal)="openDialogDisableUser()"
           [colorButton]="'red'"
         >
         </action-button>
-      }
-    </div>
 
   </div>
 
