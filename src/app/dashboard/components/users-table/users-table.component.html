@@ -9,18 +9,14 @@
     <!--  TODO pendiente de abrir dialogo para indicar los usuarios
       seleccionados y que pasaran a deshabilitarse-->
     <div>
-      <action-button
-        [title]="'Desabilitar usuario'"
-        (enviarSenal)="openDialogDisableUser()"
-        [colorButton]="'red'"
-        [disable]="isButtonDisable()"
-      >
-      </action-button>
-      @if (this.isButtonDisable()) {
-        <p class="text-red-500 text-sm mt-2">
-          Selecciona al menos un usuario para continuar
-        </p>
 
+      @if (this.isButtonDisable()) {
+        <action-button
+          [title]="'Desabilitar usuario'"
+          (enviarSenal)="openDialogDisableUser()"
+          [colorButton]="'red'"
+        >
+        </action-button>
       }
     </div>
 

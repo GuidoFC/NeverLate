@@ -1,4 +1,4 @@
-import {Component, computed, effect, inject, input, output, signal, ViewChild} from '@angular/core';
+import {Component, effect, inject, input, output, signal, ViewChild} from '@angular/core';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import {SelectionModel} from '@angular/cdk/collections';
 import {MatCheckboxModule} from '@angular/material/checkbox';
@@ -166,7 +166,6 @@ export class UsersTableComponent {
   }
 
   isButtonDisable(): boolean {
-    return this.selection.selected.length === 0;
-
+    return this.selection.selected.length > 0;
   }
 }

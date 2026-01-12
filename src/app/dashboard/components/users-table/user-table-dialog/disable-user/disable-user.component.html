@@ -11,7 +11,14 @@
     }
   </mat-list>
 
-  <button class="ml-5" (click)="disable()"> Borrar</button>
+  <mat-dialog-actions align="end">
+    <button
+      class="px-4 py-1 bg-red-500 rounded-md text-black text-sm sm:text-lg shadow-md"
+      type="submit"
+      (click)="disableUsers()">Borrar
+    </button>
+  </mat-dialog-actions>
+
 
 </div>
 
