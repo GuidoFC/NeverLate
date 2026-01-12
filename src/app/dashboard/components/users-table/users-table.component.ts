@@ -97,11 +97,10 @@ export class UsersTableComponent {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         console.log('Usuarios deshabilitados:', result);
-
-        // limpiar selección si quieres
-        this.selection.clear();
       }
     });
+    // limpiar selección
+    this.selection.clear();
   }
 
 
