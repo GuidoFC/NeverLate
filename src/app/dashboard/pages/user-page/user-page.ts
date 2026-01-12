@@ -19,4 +19,8 @@ export default class UserPage {
   createUser(newUSer: user_worker) {
     this.userService.saveUSer(newUSer);
   }
+
+  disabledUsers(newUSer: user_worker[]) {
+    this.userService.deleteUSer(newUSer);
+  }
 }

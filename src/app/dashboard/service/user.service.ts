@@ -181,4 +181,11 @@ export class UserService {
     this.users.update((prev) => [...prev, user]);
   }
 
+  deleteUSer(user: user_worker[]) {
+    console.log("que obtengo en el utlimo metodo: ", user)
+
+    // TODO antes de borrar el usuario, tendria que guardarlo en un Servicio de Usuarios deshabilitados
+    // eliminar a los usuario de la lista
+  }
+
 }

@@ -33,6 +33,7 @@ export class UsersTableComponent {
 
   dataUser = input.required<user_worker[]>()
   userCreated = output<user_worker>();
+  listUserDisable = output<user_worker[]>();
 // Inyecto el servicio MatDialog de Angular Material,
 // que me permite abrir componentes como diálogos
   readonly dialog = inject(MatDialog);
@@ -94,9 +95,10 @@ export class UsersTableComponent {
       data: selectedUsers,
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        console.log('Usuarios deshabilitados:', result);
+    dialogRef.afterClosed().subscribe(listUser => {
+      if (listUser) {
+        console.log('Usuarios deshabilitados:', listUser);
+        this.listUserDisable.emit(listUser);
       }
     });
     // limpiar selección

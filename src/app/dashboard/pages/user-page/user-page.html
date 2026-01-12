@@ -1,3 +1,4 @@
 <users-table [dataUser]="userService.getAllUser()"
              (userCreated)="createUser($event)"
+             (listUserDisable)="disabledUsers($event)"
 />
