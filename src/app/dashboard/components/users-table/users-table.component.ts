@@ -11,6 +11,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {ActionButton} from '../../../shared/ui/action-button/action-button';
 import {AddUserDialog} from './user-table-dialog/add-user/add-user-dialog';
 import {DisableUser} from './user-table-dialog/disable-user/disable-user.component';
+import {RouterLink} from "@angular/router";
 
 
 @Component({
@@ -23,7 +24,8 @@ import {DisableUser} from './user-table-dialog/disable-user/disable-user.compone
     MatSortModule,
     MatSort,
     MatButtonModule,
-    ActionButton
+    ActionButton,
+    RouterLink
   ],
   standalone: true,
   templateUrl: './users-table.component.html',

@@ -8,7 +8,17 @@ export const routes: Routes = [
     children: [
       {
         path: 'user',
-        loadComponent: () => import('./dashboard/pages/user-page/user-page'),
+        children: [
+          {
+            path: '',
+            loadComponent: () => import('./dashboard/pages/user-page/user-page'),
+          },
+          {
+            path: 'disabled',
+            loadComponent: () =>
+              import('./dashboard/pages/disable-user-page/disable-user-page'),
+          }
+        ]
       },
       {
         path: 'client',

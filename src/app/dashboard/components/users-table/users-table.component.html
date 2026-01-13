@@ -1,10 +1,17 @@
 <div class="flex flex-col">
   <div class="flex justify-between">
 
-    <action-button
-      [title]="'Crear usuario'"
-      (enviarSenal)="openDialogCreateUser()" [colorButton]="'blue'">
-    </action-button>
+    <div>
+      <action-button
+        [title]="'Crear usuario'"
+        (enviarSenal)="openDialogCreateUser()" [colorButton]="'blue'">
+      </action-button>
+
+      <a [routerLink]="['/dashboard/user/disabled']">
+        Ver usuarios deshabilitados
+      </a>
+    </div>
+
 
     <!--  TODO pendiente de abrir dialogo para indicar los usuarios
       seleccionados y que pasaran a deshabilitarse-->
