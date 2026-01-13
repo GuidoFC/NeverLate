@@ -12,165 +12,126 @@ export class UserService {
   private users = signal<user_worker[]>([
     {
       id: 1,
-      firstName: 'Alex',
-      lastName: 'Moldovar',
-      secondLastName: 'Moldovar',
+      firstName: 'Antonio',
+      lastName: 'García',
+      secondLastName: 'López',
       role: 'Admin',
-      email: 'alex@alex.com'
+      email: 'antonio.garcia@gestoria.com'
     },
     {
       id: 2,
-      firstName: 'Guido',
-      lastName: 'Figueroa',
-      secondLastName: 'Figueroa',
+      firstName: 'Carmen',
+      lastName: 'Martínez',
+      secondLastName: 'Ruiz',
       role: 'Responsable',
-      email: 'guido@guido.com'
+      email: 'carmen.martinez@gestoria.com'
     },
     {
       id: 3,
-      firstName: 'Danylo',
-      lastName: 'Ruso',
-      secondLastName: 'Ruso',
-      role: 'Prácticas',
-      email: 'danylo@danylo.com'
+      firstName: 'Javier',
+      lastName: 'Serrano',
+      secondLastName: 'Pérez',
+      role: 'Usuario',
+      email: 'javier.serrano@gestoria.com'
     },
     {
       id: 4,
-      firstName: 'GUIDO',
-      lastName: 'Castro',
-      secondLastName: '',
-      role: 'Responsable',
-      email: 'guido.castro@empresa.com'
+      firstName: 'Lucía',
+      lastName: 'Navarro',
+      secondLastName: 'Gómez',
+      role: 'Usuario',
+      email: 'lucia.navarro@gestoria.com'
     },
     {
       id: 5,
-      firstName: 'Laura',
-      lastName: 'Martínez',
-      secondLastName: 'Gómez',
-      role: 'Admin',
-      email: 'laura@empresa.com'
+      firstName: 'Miguel',
+      lastName: 'Ortega',
+      secondLastName: 'Santos',
+      role: 'Responsable',
+      email: 'miguel.ortega@gestoria.com'
     },
     {
       id: 6,
-      firstName: 'Carlos',
-      lastName: 'Pérez',
-      secondLastName: 'Ruiz',
+      firstName: 'Elena',
+      lastName: 'Vega',
+      secondLastName: 'Moreno',
       role: 'Usuario',
-      email: 'carlos@empresa.com'
+      email: 'elena.vega@gestoria.com'
     },
     {
       id: 7,
-      firstName: 'María',
-      lastName: 'López',
-      secondLastName: 'Sánchez',
-      role: 'Responsable',
-      email: 'maria@empresa.com'
+      firstName: 'David',
+      lastName: 'Ramos',
+      secondLastName: 'Castro',
+      role: 'Usuario',
+      email: 'david.ramos@gestoria.com'
     },
     {
       id: 8,
-      firstName: 'Javier',
-      lastName: 'García',
-      secondLastName: 'Moreno',
-      role: 'Usuario',
-      email: 'javier@empresa.com'
+      firstName: 'Laura',
+      lastName: 'Campos',
+      secondLastName: 'Iglesias',
+      role: 'Admin',
+      email: 'laura.campos@gestoria.com'
     },
     {
       id: 9,
-      firstName: 'Ana',
-      lastName: 'Torres',
-      secondLastName: 'Vidal',
-      role: 'Prácticas',
-      email: 'ana@empresa.com'
+      firstName: 'Pablo',
+      lastName: 'Hernández',
+      secondLastName: 'Gil',
+      role: 'Usuario',
+      email: 'pablo.hernandez@gestoria.com'
     },
     {
       id: 10,
-      firstName: 'Sergio',
-      lastName: 'Romero',
-      secondLastName: 'Gil',
-      role: 'Usuario',
-      email: 'sergio@empresa.com'
+      firstName: 'Sara',
+      lastName: 'Molina',
+      secondLastName: 'Rey',
+      role: 'Prácticas',
+      email: 'sara.molina@gestoria.com'
     },
     {
       id: 11,
-      firstName: 'Paula',
-      lastName: 'Navarro',
-      secondLastName: 'Iglesias',
-      role: 'Responsable',
-      email: 'paula@empresa.com'
+      firstName: 'Álvaro',
+      lastName: 'Domínguez',
+      secondLastName: 'Cruz',
+      role: 'Usuario',
+      email: 'alvaro.dominguez@gestoria.com'
     },
     {
       id: 12,
-      firstName: 'Miguel',
-      lastName: 'Ortega',
-      secondLastName: 'Cruz',
-      role: 'Usuario',
-      email: 'miguel@empresa.com'
+      firstName: 'Marta',
+      lastName: 'Pardo',
+      secondLastName: 'Vidal',
+      role: 'Responsable',
+      email: 'marta.pardo@gestoria.com'
     },
     {
       id: 13,
-      firstName: 'Lucía',
-      lastName: 'Molina',
-      secondLastName: 'Herrera',
-      role: 'Prácticas',
-      email: 'lucia@empresa.com'
+      firstName: 'Raúl',
+      lastName: 'Blanco',
+      secondLastName: 'Nieto',
+      role: 'Usuario',
+      email: 'raul.blanco@gestoria.com'
     },
     {
       id: 14,
-      firstName: 'David',
-      lastName: 'Ramos',
-      secondLastName: 'Flores',
+      firstName: 'Natalia',
+      lastName: 'Fuentes',
+      secondLastName: 'León',
       role: 'Usuario',
-      email: 'david@empresa.com'
+      email: 'natalia.fuentes@gestoria.com'
     },
     {
       id: 15,
-      firstName: 'Elena',
-      lastName: 'Vega',
-      secondLastName: 'Campos',
-      role: 'Responsable',
-      email: 'elena@empresa.com'
-    },
-    {
-      id: 16,
-      firstName: 'Iván',
-      lastName: 'Santos',
-      secondLastName: 'León',
-      role: 'Usuario',
-      email: 'ivan@empresa.com'
-    },
-    {
-      id: 17,
-      firstName: 'Natalia',
+      firstName: 'Isabel',
       lastName: 'Cano',
-      secondLastName: 'Pardo',
+      secondLastName: 'Flores',
       role: 'Admin',
-      email: 'natalia@empresa.com'
-    },
-    {
-      id: 18,
-      firstName: 'Rubén',
-      lastName: 'Fuentes',
-      secondLastName: 'Blanco',
-      role: 'Usuario',
-      email: 'ruben@empresa.com'
-    },
-    {
-      id: 19,
-      firstName: 'Clara',
-      lastName: 'Rey',
-      secondLastName: 'Méndez',
-      role: 'Prácticas',
-      email: 'clara@empresa.com'
-    },
-    {
-      id: 20,
-      firstName: 'Óscar',
-      lastName: 'Nieto',
-      secondLastName: 'Serrano',
-      role: 'Usuario',
-      email: 'oscar@empresa.com'
+      email: 'isabel.cano@gestoria.com'
     }
   ]);
+
 
 
   getAllUser(): user_worker[] {
