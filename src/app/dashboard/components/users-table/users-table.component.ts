@@ -1,4 +1,4 @@
-import {Component, effect, inject, input, output, signal, ViewChild} from '@angular/core';
+import {Component, effect, inject, input, output, ViewChild} from '@angular/core';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import {SelectionModel} from '@angular/cdk/collections';
 import {MatCheckboxModule} from '@angular/material/checkbox';
@@ -48,7 +48,6 @@ export class UsersTableComponent {
 
   totalElements = 0;
 
-  hasNoUserSelected = signal(false);
 
   constructor() {
     effect(() => {
@@ -165,7 +164,5 @@ export class UsersTableComponent {
     return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.id + 1}`;
   }
 
-  isButtonDisable(): boolean {
-    return this.selection.selected.length > 0;
-  }
+
 }
