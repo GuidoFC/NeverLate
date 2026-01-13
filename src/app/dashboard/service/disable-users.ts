@@ -13,6 +13,5 @@ export class DisableUsers {
 
   saveDisableUsers(listUSer: user_worker[]) {
     this.disableUsers.update(prev => [...prev, ...listUSer]);
-    console.log("usuarios guardados aqui: ", this.disableUsers())
   }
 }

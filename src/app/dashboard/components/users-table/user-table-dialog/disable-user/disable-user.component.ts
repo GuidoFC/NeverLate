@@ -20,7 +20,6 @@ export class DisableUser {
 
 
   disableUsers() {
-    console.log("que data tengo: ", this.users)
     this.dialogRef.close(this.users);
   }
 

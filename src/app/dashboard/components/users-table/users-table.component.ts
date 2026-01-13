@@ -70,7 +70,6 @@ export class UsersTableComponent {
       // hacer comprobaciones antes de guardar
       // guardar los datos en el servicio de USUARIO
       if (user) {
-        console.log('Usuario recibido:', user);
         this.userCreated.emit(user);
       }
     });
@@ -79,7 +78,6 @@ export class UsersTableComponent {
 
   openDialogDisableUser() {
     const selectedUsers = this.selection.selected;
-    console.log("usuarios seleccionados: ", selectedUsers)
 
     if (selectedUsers.length === 0) {
       // Todo avisar que no se ha seleccionado ningun usuario
@@ -97,7 +95,6 @@ export class UsersTableComponent {
 
     dialogRef.afterClosed().subscribe(listUser => {
       if (listUser) {
-        console.log('Usuarios deshabilitados:', listUser);
         this.listUserDisable.emit(listUser);
       }
     });
