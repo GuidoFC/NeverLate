@@ -31,9 +31,7 @@ export class UsersTable {
 
   displayedColumns: string[] = ['select', 'id', 'firstName', 'lastName', 'secondLastName', 'role', 'email'];
 
-
-  //
-  selection = input.required<SelectionModel<user_worker>>();
+  selectedUsers = input.required<SelectionModel<user_worker>>();
 
   // @ViewChild = acceder al HTML desde TS
 // El operador "!" indica a TypeScript que esta propiedad
@@ -74,7 +72,7 @@ export class UsersTable {
 
   /** Whether the number of selected elements matches the total number of rows. */
   isAllSelected() {
-    const numSelected = this.selection().selected.length;
+    const numSelected = this.selectedUsers().selected.length;
     const numRows = this.tableUsersDataSource.data.length;
     return numSelected === numRows;
   }
@@ -82,7 +80,7 @@ export class UsersTable {
   /** Selects all rows if they are not all selected; otherwise clear selection. */
   toggleAllRows() {
     if (this.isAllSelected()) {
-      this.selection().clear();
+      this.selectedUsers().clear();
       return;
     }
   }
@@ -93,6 +91,6 @@ export class UsersTable {
     if (!row) {
       return `${this.isAllSelected() ? 'deselect' : 'select'} all`;
     }
-    return `${this.selection().isSelected(row) ? 'deselect' : 'select'} row ${row.id + 1}`;
+    return `${this.selectedUsers().isSelected(row) ? 'deselect' : 'select'} row ${row.id + 1}`;
   }
 }
