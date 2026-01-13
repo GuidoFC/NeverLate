@@ -1,7 +1,7 @@
 import {Component, inject} from '@angular/core';
-import {user_worker} from '../../../../interface/interface-tableUser';
 import {MAT_DIALOG_DATA, MatDialogActions, MatDialogRef} from '@angular/material/dialog';
 import {MatListModule} from '@angular/material/list';
+import {user_worker} from '../../../interface/interface-tableUser';
 
 @Component({
   selector: 'disable-user',

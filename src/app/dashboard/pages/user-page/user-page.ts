@@ -3,11 +3,11 @@ import {UserService} from '../../service/user.service';
 import {user_worker} from '../../interface/interface-tableUser';
 import {ActionButton} from '../../../shared/ui/action-button/action-button';
 import {RouterLink} from '@angular/router';
-import {AddUserDialog} from '../../components/users-table/user-table-dialog/add-user/add-user-dialog';
 import {MatDialog} from '@angular/material/dialog';
-import {DisableUser} from '../../components/users-table/user-table-dialog/disable-user/disable-user.component';
 import {SelectionModel} from '@angular/cdk/collections';
 import {UsersTable} from '../../../shared/table/table-user/users-table';
+import {AddUserDialog} from '../../components/dialogs/add-user-dialog/add-user-dialog';
+import {DisableUser} from '../../components/dialogs/disable-user-dialog/disable-user.component';
 
 
 @Component({

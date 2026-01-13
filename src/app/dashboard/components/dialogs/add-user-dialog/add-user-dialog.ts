@@ -2,8 +2,8 @@ import {Component, inject} from '@angular/core';
 import {MatDialogModule, MatDialogRef} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import {FormBuilder, ReactiveFormsModule, Validators} from '@angular/forms';
-import {FormError} from '../../../../../shared/form/form-error/form-error';
-import {user_worker} from '../../../../interface/interface-tableUser';
+import {FormError} from '../../../../shared/form/form-error/form-error';
+import {user_worker} from '../../../interface/interface-tableUser';
 
 @Component({
   selector: 'add-user-dialog',
