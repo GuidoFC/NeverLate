@@ -1,4 +1,30 @@
-<users-table [dataUser]="userService.getAllUser()"
-             (userCreated)="createUser($event)"
-             (listUserDisable)="disabledUsers($event)"
+<div class="flex justify-between">
+
+  <div>
+    <action-button
+      [title]="'Crear usuario'"
+      (enviarSenal)="openDialogCreateUser()" [colorButton]="'blue'">
+    </action-button>
+
+    <a [routerLink]="['/dashboard/user/disabled']"
+       class="ml-5 text-blue-600 hover:text-blue-800 font-medium transition-colors">
+      Ver usuarios deshabilitados
+    </a>
+  </div>
+
+
+  <!--  TODO pendiente de abrir dialogo para indicar los usuarios
+    seleccionados y que pasaran a deshabilitarse-->
+  <action-button
+    [title]="'Desabilitar usuario'"
+    (enviarSenal)="openDialogDisableUser()"
+    [colorButton]="'red'"
+  >
+  </action-button>
+
+</div>
+
+<users-table [dataUser]="getAllUser()"
+             [selection]="selection"
+/>
 />
