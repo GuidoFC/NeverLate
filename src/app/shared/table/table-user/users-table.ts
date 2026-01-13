@@ -9,7 +9,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {user_worker} from '../../../dashboard/interface/interface-tableUser';
 
 @Component({
-  selector: 'disable-users-table',
+  selector: 'users-table',
   imports: [
     MatTableModule,
     MatCheckboxModule,
@@ -20,10 +20,10 @@ import {user_worker} from '../../../dashboard/interface/interface-tableUser';
     MatButtonModule,
   ],
   standalone: true,
-  templateUrl: './share-users-table.html',
+  templateUrl: './users-table.html',
   styles: ``,
 })
-export class ShareUsersTable {
+export class UsersTable {
 
   dataUser = input.required<user_worker[]>()
   tableUsersDataSource = new MatTableDataSource<user_worker>([]);
