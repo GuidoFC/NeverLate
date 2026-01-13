@@ -1,10 +1,13 @@
-import {Injectable, signal} from '@angular/core';
+import {inject, Injectable, signal} from '@angular/core';
 import {user_worker} from '../interface/interface-tableUser';
+import {DisableUsers} from './disable-users';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
+
+  public DisableUserService = inject(DisableUsers);
 
   private users = signal<user_worker[]>([
     {
@@ -181,11 +184,16 @@ export class UserService {
     this.users.update((prev) => [...prev, user]);
   }
 
-  deleteUSer(user: user_worker[]) {
-    console.log("que obtengo en el utlimo metodo: ", user)
-
+  deleteUSer(listUserWorkers: user_worker[]) {
     // TODO antes de borrar el usuario, tendria que guardarlo en un Servicio de Usuarios deshabilitados
-    // eliminar a los usuario de la lista
+    this.DisableUserService.saveDisableUsers(listUserWorkers)
+    // Crear un set con los IDs de los usuaruis que quiero eliminar
+    const idsToRemove = new Set(listUserWorkers.map(u => u.id));
+
+    // Actualizar la signal eliminándolos
+    this.users.update(prev =>
+      prev.filter(user => !idsToRemove.has(user.id))
+    );
   }
 
 }
