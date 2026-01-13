@@ -2,6 +2,8 @@ import {Component, inject} from '@angular/core';
 import {RouterLink} from '@angular/router';
 import {UsersTable} from '../../../shared/table/table-user/users-table';
 import {DisableUsers} from '../../service/disable-users';
+import {SelectionModel} from '@angular/cdk/collections';
+import {user_worker} from '../../interface/interface-tableUser';
 
 @Component({
   selector: 'app-disable-user-page',
@@ -16,5 +18,7 @@ import {DisableUsers} from '../../service/disable-users';
 export default class DisableUserPage {
 
   public disableSserService = inject(DisableUsers);
+  usersSelected = new SelectionModel<user_worker>(true, []);
+
 
 }
