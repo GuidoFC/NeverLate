@@ -83,6 +83,8 @@ export class UsersTable {
       this.selectedUsers().clear();
       return;
     }
+    // TODO solo seleccionar los usuarios que se ven en la pantalla o los que se han filtrado
+    this.tableUsersDataSource.data.forEach(row => this.selectedUsers().select(row));
   }
 
   /** The label for the checkbox on the passed row */
